@@ -1,17 +1,22 @@
-# Base Image
-FROM node:20.17.0-alpine3.19
+FROM node:22.12.0-alpine3.21
 
-WORKDIR /home/app/
+# Set working directory
+WORKDIR /app
 
-COPY package*.json .
+# Copy package files first (better caching)
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+
+# Install Node modules
 RUN npm install
 
-# Copying the source code to docker image
-COPY index.js index.js
+# Copy all project files
+COPY . .
 
-COPY Dockerfile Dockerfile
+# Build project (if frontend or build step exists)
+RUN npm run build
 
-ENV PORT=8000
-EXPOSE 8000
 
-CMD [ "npm", "start" ]
+
+# Command to run your app
+CMD ["npm", "start"]

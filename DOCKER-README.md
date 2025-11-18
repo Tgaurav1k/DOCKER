@@ -1,5 +1,6 @@
 docker is used make a image container that save the version also with so that no need to change the code .
 
+
 Multistage in docker -> multistage in docker build allows you to use multiple FROM statements inside a single Dockerfile 
 
 Reduce the size of image 
@@ -42,11 +43,9 @@ RUN npm install --only=production
 CMD ["node", "dist/server.js"]
 
 
-
-
-
-As the Docker contain the container so that it save the entire version as well.
-
+node.js 
+cache
+build tools etc 
 
 
 Create a container no need to step up the operating system one by one.
@@ -153,6 +152,8 @@ Tony Stark and my dr\_strange container can run continuously and connect with ea
 create file in this => touch abc.js
 
 
+node
+
 
 COPY..  => copy every file of the project to optimise it better.
 
@@ -163,4 +164,5 @@ COPY..  => copy every file of the project to optimise it better.
 
 
 use alpine its for small
+
 
